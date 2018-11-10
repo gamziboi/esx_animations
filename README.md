@@ -3,6 +3,8 @@ En edit på [esx_animations](https://github.com/ESX-Org/esx_animations), man kan
 
 ## Installation
 
+ - Ladda ner [pnotify](https://forum.fivem.net/t/release-pnotify-in-game-js-notifications-using-noty/20659)
+
  - Ladda ner scriptet
  
  - Kör sql filen
