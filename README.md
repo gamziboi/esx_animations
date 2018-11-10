@@ -5,6 +5,8 @@ En edit på [esx_animations](https://github.com/ESX-Org/esx_animations), man kan
 
  - Ladda ner scriptet
  
+ - Kör sql filen
+ 
  - Lägg in scriptet i /resources/[esx]/
  
  - Lägg till ```start esx_animations``` i server.cfg
