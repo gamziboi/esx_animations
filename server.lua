@@ -3,10 +3,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 AddEventHandler( "playerConnecting", function(name)
 	local identifier = GetPlayerIdentifiers(source)[1]
-	local inDatabase = MySQL.Sync.fetchScalar("SELECT * FROM favoriteanimation WHERE identifier = @identifier", {['@identifier'] = identifier})
-	if not inDatabase then
-		MySQL.Sync.execute("INSERT INTO favoriteanimation (`identifier`) VALUES (@identifier)",{['@identifier'] = identifier})
-    end
+	MySQL.Sync.execute("INSERT INTO favoriteanimation (`identifier`) VALUES (@identifier)",{['@identifier'] = identifier})
 end)
 
 
