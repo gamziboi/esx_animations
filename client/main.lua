@@ -10,10 +10,9 @@ local Keys = {
   ["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
 }
 
+ESX = nil
 local isDead = false
 local inAnim = false
-
-ESX = nil
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -147,7 +146,7 @@ function OpenSyncedMenu()
 
 			TriggerServerEvent('esx_animations:sync', GetPlayerServerId(closestPlayer), lib, anim1, anim2, distans, distans2, height)
 		else
-			sendNotification('Ingen är i närheten', 'error', 2500)
+			sendNotification('Ingen spelare i närheten', 'error', 2500)
 		end
 	end, function(data, menu)
 		menu.close()
@@ -208,7 +207,7 @@ function OpenFavoriteSubMenu(menu)
 	ESX.UI.Menu.Open(
 		'default', GetCurrentResourceName(), 'favorite_submemu',
 		{
-			title    = title,
+			title = title,
 			align = 'bottom-right',
 			elements = elements
 		},

@@ -1,11 +1,13 @@
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-AddEventHandler( "playerConnecting", function(name)
-	local identifier = GetPlayerIdentifiers(source)[1]
+AddEventHandler("playerConnecting", function(name)
+    local identifier = GetPlayerIdentifiers(source)[1]
+    local result = MySQL.Sync.fetchScalar("SELECT * FROM favoriteanimation WHERE identifier = @identifier", {['@identifier'] = identifier})
+    if not result then
 	MySQL.Sync.execute("INSERT INTO favoriteanimation (`identifier`) VALUES (@identifier)",{['@identifier'] = identifier})
+    end
 end)
-
 
 RegisterServerEvent('esx_animations:newFavorite')
 AddEventHandler('esx_animations:newFavorite', function(lib, dict, scenario)
@@ -39,6 +41,3 @@ AddEventHandler('esx_animations:sync', function(target, animationLib, animation,
 	TriggerClientEvent('esx_animations:syncTarget', targetPlayer.source, source, animationLib, animation2, distans, distans2, height, spin)
 	TriggerClientEvent('esx_animations:syncMe', source, animationLib, animation, distans, distans2)
 end)
-
---[[
---]]

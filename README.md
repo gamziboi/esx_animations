@@ -1,19 +1,19 @@
 # esx_animations
-En edit på [esx_animations](https://github.com/ESX-Org/esx_animations), man kan välja favorit animation (Z) och det finns även synkade animationer. 
+An edit of [esx_animations](https://github.com/ESX-Org/esx_animations), you can choose a favourite animation that you can bind on the [Z] button. There is also some synced animations like hugs, kisses etc.
 
-## Installation
+## Setup
 
- - Ladda ner [pnotify](https://forum.fivem.net/t/release-pnotify-in-game-js-notifications-using-noty/20659)
+ - Download [pnotify](https://forum.fivem.net/t/release-pnotify-in-game-js-notifications-using-noty/20659)
 
- - Ladda ner scriptet
+ - Download this esx_animations script
  
- - Kör sql filen
+ - Run the SQL file
  
- - Lägg in scriptet i /resources/[esx]/
+ - Put the script inside the /resources/[esx]/ folder
  
- - Lägg till ```start esx_animations``` i server.cfg
+ - Add ```start esx_animations``` in your servers server.cfg
  
- - För att öppna menyn, om du använder [esx_personmeny](https://github.com/xBlueSI/esx_personmeny/) lägg in ```{label = ('Animationer'), value = 'animations'},``` efter rad 160 i client.lua lägg sedan till detta efter rad 165
+ - To open up the menu, if you use [esx_personmeny](https://github.com/xBlueSI/esx_personmeny/) put the code ```{label = ('Animationer'), value = 'animations'},``` in the 161th line in ../client/client.lua then add this code to the line 166
  ```
  if data.current.value == 'animations' then
       	TriggerEvent("esx_animations")
