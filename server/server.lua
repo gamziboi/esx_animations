@@ -17,7 +17,7 @@ end
 AddEventHandler( "playerConnecting", function(name)
     local identifier = GetPlayerIdentifiers(source)[1]
     if inDatabase(identifier) then
-        print('Här har du Test skiten tack tack tack')
+        -- LifeGoal
     elseif not inDatabase(identifier) then
 	addDatabas(identifier)
 	end
