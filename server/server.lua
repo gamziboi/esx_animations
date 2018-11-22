@@ -1,26 +1,12 @@
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-function addDatabase(identifier)
+AddEventHandler("playerConnecting", function(name)
     local identifier = GetPlayerIdentifiers(source)[1]
-	MySQL.Sync.execute("INSERT INTO favoriteanimation (`identifier`) VALUES (@identifier)",{['@identifier'] = identifier})
-end
-
-function inDatabase(identifier)
     local result = MySQL.Sync.fetchScalar("SELECT * FROM favoriteanimation WHERE identifier = @identifier", {['@identifier'] = identifier})
-    if result then
-        return true
+    if not result then
+	MySQL.Sync.execute("INSERT INTO favoriteanimation (`identifier`) VALUES (@identifier)",{['@identifier'] = identifier})
     end
-    return false
-end
-
-AddEventHandler( "playerConnecting", function(name)
-    local identifier = GetPlayerIdentifiers(source)[1]
-    if inDatabase(identifier) then
-        -- LifeGoal
-    elseif not inDatabase(identifier) then
-	addDatabas(identifier)
-	end
 end)
 
 RegisterServerEvent('esx_animations:newFavorite')
